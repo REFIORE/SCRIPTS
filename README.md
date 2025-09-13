@@ -12,8 +12,20 @@
 
 - Скачайте код
 - Установите зависимости командой `pip install -r requirements.txt`
-- Запуск python shell `python manage.py shell`
-- Далее вставить подходящую функцию
+- Запустить shell `python manage.py shell`
+- Нужно вставить строки:
+
+`from datacenter.models import Schoolkid, Mark, Chastisement, Lesson, Commendation`
+
+и
+
+`import random`
+- Выбрать нужную функцию и вставить в терминале
+- Пример вставки функции:
+
+![screenshot](image.png)
+
+- Запустить и проверить
 
 ## Цели проекта
 
