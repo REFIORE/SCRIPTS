@@ -1,4 +1,5 @@
 from datacenter.models import Schoolkid, Mark, Chastisement, Lesson, Commendation
+from django.http import Http404
 import random
 
 
@@ -25,7 +26,10 @@ def create_commendation(schoolkid, praise_for_kid):
 
 
 def main():
-    schoolkid = Schoolkid.objects.get(full_name__contains='Фролов Иван').first()
+    try:
+        schoolkid = Schoolkid.objects.get(full_name__contains='Фролов Иван').first()
+    except Schoolkid.DoesNotExist:
+        raise Http404("Ученик с такими данными не найден!")
     praise_for_kid = [
         'Молодец!',
         'Отлично!',
