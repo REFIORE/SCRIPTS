@@ -27,9 +27,11 @@ def create_commendation(schoolkid, praise_for_kid):
 
 def main():
     try:
-        schoolkid = Schoolkid.objects.get(full_name__contains='Фролов Иван').first()
+        schoolkid = Schoolkid.objects.get(full_name__contains='Фролов Иван')
     except Schoolkid.DoesNotExist:
         raise Http404("Ученик с такими данными не найден!")
+    except Schoolkid.MultipleObjectsReturned:
+        raise Http404("Запрос вернул несколько объектов, хотя ожидался только один!")
     praise_for_kid = [
         'Молодец!',
         'Отлично!',
